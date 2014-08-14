@@ -5,12 +5,14 @@
     <title></title>
 </head>
 <body>
+
     <script src = "app.js"></script>
-    <input type="text" id="listelem"/>
+    <form>
+        <input type="text" name="task">
+        <button onclick="addElement(this.form.task.value); return false">Добавить элемент</button>
+    </form>
     <ul id="list">
     </ul>
-    <button onmousedown="addElement()">Добавить элемент</button>
-
 
 </body>
 </html>
