@@ -14,8 +14,8 @@ function  addTask(text) {
 
     var checkBox = document.createElement('input');
     checkBox.type = "checkbox";
-    checkBox.id = "checkBox";
-    checkBox.onclick = function() { selectTask(this) ; };
+    checkBox.className = "unchecked";
+    checkBox.onclick = function() { checkTask(this) ; };
 
     list.appendChild(li);
     li.appendChild(delBtn);
@@ -26,11 +26,18 @@ function delTask(node) {
     node.parentNode.removeChild(node);
 }
 
-function selectTask(checkbox) {
+function delAllChecked() {
+    var checkboxes = document.getElementsByClassName('checked');
+    for (var i = 0; i < checkboxes.length; i++) {
+        delTask(checkboxes[i]);
+    }
+}
+
+function checkTask(checkbox) {
     if (checkbox.checked) {
-        checkbox.parentNode.style.color = 'red';
+        checkbox.parentNode.className = 'checked';
     }
     else {
-        checkbox.parentNode.style.color = 'black';
+        checkbox.parentNode.className = 'unchecked';
     }
 }
